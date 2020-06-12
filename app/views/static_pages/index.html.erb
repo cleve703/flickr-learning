@@ -1,0 +1,15 @@
+<h1>Flickr Search</h1>
+<%= form_with url: root_path, method: "get", local: true do |f| %>
+  <%= f.label :user_id %><br>
+  <%= f.text_field :user_id %><br><br>
+  <%= f.submit "Search" %><br>
+<% end %>
+
+<% if @photos.any? %>
+    <% @photos.each do |photo| %>
+        <figure>
+        <%= image_tag(photo.url_t) %>
+        <figcaption><%= photo.title %></figcaption>
+        </figure>
+    <% end %>
+<% end %>
