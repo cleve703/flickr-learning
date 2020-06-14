@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   require 'flickr'
 
   def index
+    @photos = []
     user_id = search_params[:user_id]
     if search_params[:user_id].present?
       flickr = Flickr.new
